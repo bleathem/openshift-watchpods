@@ -1,4 +1,6 @@
-var request = require('request');
+var request = require('request')
+  , split = require('split')
+  ;
 
 var options = {
   url: 'https://' + process.env.SERVER + '/api/v1beta3/watch/namespaces/' + process.env.NAMESPACE + '/pods',
@@ -11,7 +13,7 @@ var options = {
 
 var connect = function(callback) {
   console.log(options);
-  var stream = request(options);
+  var stream = request(options).pipe(split());
   console.log(new Date(), 'Connecting');
   stream.on('response', function(error) {
     //do nothing
@@ -26,7 +28,7 @@ var connect = function(callback) {
     } catch(e) {
       // parse exception likely due to stream terminating.  Log and continue.
       console.log(e);
-      // console.log(data);
+      // console.log(data.toString());
     }
   });
   stream.on('error', function(error) {

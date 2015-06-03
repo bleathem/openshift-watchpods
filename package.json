@@ -13,6 +13,7 @@
   "author": "Brian Leathem",
   "license": "ISC",
   "dependencies": {
-    "request": "^2.57.0"
+    "request": "^2.57.0",
+    "split": "^1.0.0"
   }
 }
