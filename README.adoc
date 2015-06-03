@@ -1,0 +1,7 @@
+A script that invokes the '/api/v1beta3/watch/namespaces/{namsepaces}/pods endpoint,
+automatically re-connecting when the response request terminates.
+
+The server, oauth token, and namespace are specified as environment variables.  It can be set on startup.
+
+* npm install
+* SERVER=<server> TOKEN=<token> NAMESPACE=<snamespace> npm start
